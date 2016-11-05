@@ -1,41 +1,31 @@
-function generate_first_examples()
-{
-    var num1 = Math.floor((Math.random() * 5) + 1);
-    var num2 = Math.floor((Math.random() * 5) + 1);
+function validate(correct_answer) {
+   var answer = document.getElementById("answer").value;
 
-    var ex1 = Math.pow(num1, num2);
-    var ex2 = Math.pow(num2, num1);
-    var ex3 = ex2 - ex1;
+   console.log("Answer: " + correct_answer);
 
-    var concat = num1.toString() + ", " + num2.toString() + " -> " +
-                ex1.toString() + ex2.toString() + ex3.toString();
-    return concat;
-}
+   if(document.getElementById("problem").classList.contains("has-error"))
+    {
+        document.getElementById("problem").classList.remove("has-error");
+        document.getElementById("wrong_answer").classList.remove("shown-message");
+        document.getElementById("wrong_answer").classList.add("hidden-message");
+    }
+    else if(document.getElementById("problem").classList.contains("has-success"))
+    {
+        document.getElementById("problem").classList.remove("has-success");
+        document.getElementById("next")/classList.remove("shown-message");
+        document.getElementById("next").classList.add("hidden-message");
 
-function generate_second_examples()
-{
-    var num1 = Math.floor((Math.random() * 10) + 1);
-    var num2 = Math.floor((Math.random() * 10) + 1);
+    }
 
-    var ex1 = num1 + num2;
-    var ex2 = ex1 - num2;
-    var ex3 = ex2 +  num2;
-
-    var concat = num1.toString() + ", " + num2.toString() + " -> " +
-                ex1.toString() + ex2.toString() + ex3.toString();
-    return concat;
-}
-
-function generate_third_examples()
-{
-    var num1 = Math.floor((Math.random() * 10) + 1);
-    var num2 = Math.floor((Math.random() * 10) + 1);
-
-    var ex1 = num1 + num2;
-    var ex2 = ex1 + num2;
-    var ex3 = ex2 +  num2;
-
-    var concat = num1.toString() + ", " + num2.toString() + " -> " +
-                ex1.toString() + ex2.toString() + ex3.toString();
-    return concat;
+   if(answer == correct_answer) {
+      document.getElementById("problem").classList.add("has-success");
+      document.getElementById("next").classList.remove("hidden-message");
+      document.getElementById("next").classList.add("shown-message");
+   }
+   else {
+      document.getElementById("wrong_answer").innerHTML="That is completely wrong";
+      document.getElementById("wrong_answer").classList.remove("hidden-message");
+      document.getElementById("wrong_answer").classList.add("shown-message");
+      document.getElementById("problem").classList.add("has-error");
+   }
 }

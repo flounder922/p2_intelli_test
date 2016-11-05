@@ -4,6 +4,7 @@
     <!-- HTML Project 2: Nathaniel Murphy -->
     <meta charset="UTF-8">
     <title>Psudoe Intelligence Game</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="intelli.css"/>
     <script type="text/javascript" src="problem_generator.js"></script>
 </head>
@@ -26,9 +27,19 @@
             <p class="example_area" id="example5">&nbsp;1,7 -> 176</p>
         </div>
     </div>
-    <div class="problem">
-      <p>3,5 -> </p>
-      <input />
+    <div class="answer_form" id="problem">
+      <h3>Problem</h3>
+      <p>3,5 ->
+         <input type="username" id="answer" placeholder="answer" onchange="validate(243125118)"/>
+         <span id="wrong_answer" class="control-label hidden-message">
+            Error Message(hidden)
+         </span>
+      </p>
+    </div>
+    <div class="next_question">
+      <span id="next" class="control-label hidden-message">
+         <a href="question2.html">Next Question</a>
+      </span>
     </div>
 </body>
 </html>
